@@ -1,0 +1,13 @@
+# menyembunyikan daftar file/direktori
+Options -Indexes
+
+#menyembunyikan tanda server
+ServerSignature Off
+
+#menghilangkan ekstensi file url
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php
+</IfModule>
